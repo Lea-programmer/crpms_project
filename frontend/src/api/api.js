@@ -80,14 +80,11 @@ export const retrieveServiceRecords = async () => {
     return response.data;
 };
 
+export const deleteServiceRecord = async (id) => {
+    return await Api.delete(`/servicerecord/deleteservicerecordbyid/${id}`);
+};
 
-export const deleteServiceRecord = async(id) => {
-    try {
-        await Api.delete(`/deleteservicerecordbyid/${id}`);
-        return { success: true, message: "service record deleted successfully" };
-    } catch (error) {
-        return error.response?.data?.message || "error while fetching services";
-    }
-}
-
+export const updateServiceRecord = async (id, data) => {
+    return await Api.put(`/servicerecord/updateservicerecordbyid/${id}`, data);
+};
 
